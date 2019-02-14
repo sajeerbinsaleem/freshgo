@@ -4,27 +4,24 @@ This project contains an E-commerce website which was made using Laravel.
 
 ## Demo ##
 [Demo Website](https://electrodemo.000webhostapp.com/)<br />
-<br />
-![Recordit GIF](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/1.gif)
-<br /> 
-<br />
-<br />
-[Admin Panel](https://electrodemo.000webhostapp.com/admin)<br />
-<br />
-![Recordit GIF](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/2.gif)
-<br />
-
-## Login Cedentials ##
-```
-Demo Customer
-Email   : a@gmail.com
-Password: 12345
-```
 ```
 Admin
 Username: admin
 Password: 12345
 ```
+![Recordit GIF](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/1.gif)
+<br /> 
+<br />
+<br />
+[Admin Panel](https://electrodemo.000webhostapp.com/admin)<br />
+```
+Admin
+Username: admin
+Password: 12345
+```
+![Recordit GIF](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/2.gif)
+<br />
+
 
 ## Features ##
 - jQuery Validation
@@ -34,18 +31,6 @@ Password: 12345
 - Image Resizing when upload product images
 
 ## Screenshots ##
-![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/1.png)
-<br />
-<br />
-
-***
-
-![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/2.png)
-<br />
-<br />
-
-***
-
 ![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/3.png)
 <br />
 <br />
@@ -65,4 +50,16 @@ Password: 12345
 ***
 
 ![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/6.png)
+<br />
+<br />
+
+***
+
+![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/7.png)
+<br />
+<br />
+
+***
+
+![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/8.png)
 
