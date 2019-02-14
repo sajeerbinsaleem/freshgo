@@ -5,8 +5,8 @@ An E-commerce website created in Laravel framework.
 ## Demo ##
 [Demo Website](https://electrodemo.000webhostapp.com/)<br />
 ```
-Admin
-Username: admin
+Demo Customer
+Email   : a@gmail.com
 Password: 12345
 ```
 ![Recordit GIF](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/1.gif)
