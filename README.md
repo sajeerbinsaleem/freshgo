@@ -3,7 +3,7 @@
 An E-commerce website created in Laravel framework.
 
 ## Demo ##
-[Demo Website](<a href="http://example.com" target="_blank">http://example.com</a>)<br />
+[Demo Website](https://electrodemo.000webhostapp.com)<br />
 ```
 Demo Customer
 Email   : a@gmail.com
