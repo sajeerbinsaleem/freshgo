@@ -25,10 +25,10 @@ label.error {
                         <h3 class="title">User Login</h3>
                     </div>
                     <div class="form-group">
-                        <input class="input" type="email" name="email" id="email" placeholder="Email...">
+                        <input class="input" type="email" name="email" id="email" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <input class="input" type="password" name="pass" id="pass" placeholder="Enter Your Password">
+                        <input class="input" type="password" name="pass" id="pass" placeholder="Password">
                     </div>
                         <input type="submit"  name="signin" class="primary-btn order-submit" value="Sign In">
                 </form>
