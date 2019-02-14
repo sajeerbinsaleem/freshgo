@@ -1,6 +1,6 @@
 # laravel-project-eshop #
 
-This project contains an E-commerce website which was made using Laravel. 
+An E-commerce website created in Laravel framework.
 
 ## Demo ##
 [Demo Website](https://electrodemo.000webhostapp.com/)<br />
