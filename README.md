@@ -3,11 +3,16 @@
 This project contains an E-commerce website which was made using Laravel. 
 
 ## Demo ##
-[Here](https://electrodemo.000webhostapp.com/) (Demo Website)<br>
+[Demo Website](https://electrodemo.000webhostapp.com/)<br />
+<br />
 ![Recordit GIF](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/1.gif)
-<br> <br>
-[Here](https://electrodemo.000webhostapp.com/admin) (Admin Panel).
+<br /> 
+<br />
+<br />
+[Admin Panel](https://electrodemo.000webhostapp.com/admin)<br />
+<br />
 ![Recordit GIF](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/2.gif)
+<br />
 
 ## Login Cedentials ##
 ```
@@ -30,9 +35,34 @@ Password: 12345
 
 ## Screenshots ##
 ![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/1.png)
+<br />
+<br />
+
+***
+
 ![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/2.png)
+<br />
+<br />
+
+***
+
 ![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/3.png)
+<br />
+<br />
+
+***
+
 ![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/4.png)
+<br />
+<br />
+
+***
+
 ![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/5.png)
+<br />
+<br />
+
+***
+
 ![alt text](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/6.png)
 
