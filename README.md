@@ -4,23 +4,23 @@ This project contains an E-commerce website which was made using Laravel.
 
 ## Demo ##
 [Demo Website](https://electrodemo.000webhostapp.com/)<br />
-<br />
 ```
 Demo Customer
 Email   : a@gmail.com
 Password: 12345
 ```
+<br />
 ![Recordit GIF](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/1.gif)
 <br /> 
 <br />
 <br />
 [Admin Panel](https://electrodemo.000webhostapp.com/admin)<br />
-<br />
 ```
 Admin
 Username: admin
 Password: 12345
 ```
+<br />
 ![Recordit GIF](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/2.gif)
 <br />
 
