@@ -5,7 +5,7 @@ This project contains an E-commerce website which was made using Laravel.
 ## Demo ##
 [Here](https://electrodemo.000webhostapp.com/) (Demo Website)<br>
 ![Recordit GIF](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/1.gif)
-
+<br> <br>
 [Here](https://electrodemo.000webhostapp.com/admin) (Admin Panel).
 ![Recordit GIF](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/2.gif)
 
