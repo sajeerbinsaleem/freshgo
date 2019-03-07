@@ -49,7 +49,7 @@ class loginController extends Controller
             else if($request->Password!=$admin->password)
             {
                 $request->session()->flash('message', 'Invalid Password');
-                return view('adminLogin');
+                return view('admin_panel.adminLogin');
             }
         }
         
