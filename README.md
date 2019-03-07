@@ -3,7 +3,7 @@
 An E-commerce website created in Laravel framework.
 
 ## Demo ##
-Click [here](https://electrodemo.000webhostapp.com) for Demo Site <br />
+Click [here](http://www.electrodemo.cf) for Demo Site <br />
 ```
 Demo Customer
 Email   : a@gmail.com
@@ -14,7 +14,7 @@ Password: 12345
 <br />
 <br />
 ***
-Click [here](https://electrodemo.000webhostapp.com/admin) for Admin Panel <br />
+Click [here](http://www.electrodemo.cf/admin) for Admin Panel <br />
 ```
 Admin
 Username: admin
