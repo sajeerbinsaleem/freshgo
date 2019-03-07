@@ -37,7 +37,22 @@
     <!--[if lt IE 9]>
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
+        <![endif]-->
+    {{-- custom css --}}
+    <style>
+        @media only screen and (max-width: 767px){
+            #head_links {
+                visibility: hidden;
+            }
+            .custom_search_top {
+                text-align:center;
+            }
+
+            .header-ctn {
+                width: 100%;
+            }
+        }
+        </style>
 
 </head>
 
@@ -47,7 +62,7 @@
         <!-- TOP HEADER -->
         <div id="top-header">
             <div class="container">
-                <ul class="header-links pull-left">
+                <ul id="head_links" class="header-links pull-left">
                     <li><a href="#"><i class="fa fa-phone"></i> +000-00-00-00</a></li>
                     <li><a href="#"><i class="fa fa-envelope-o"></i> support@electro.com</a></li>
                     <li><a href="#"><i class="fa fa-map-marker"></i> Banani, Road 11</a></li>
@@ -87,8 +102,10 @@
                     <div class="col-md-6">
                         <div class="header-search">
                             <form action="{{route('user.search')}}" method="get">
-                                <input class="input" style="border-radius: 40px 0px 0px 40px;" name="n" placeholder="Search here">
-                                <button class="search-btn">Search</button>
+                                <div class="custom_search_top" >
+                                    <input class="input" style="border-radius: 40px 0px 0px 40px;" name="n" placeholder="Search here">
+                                    <button  class="search-btn">Search</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -98,8 +115,8 @@
                     <div class="col-md-3 clearfix">
                         <div class="header-ctn">
                             <!-- Cart -->
-                            <div class="dropdown">
-                                <a class="dropdown-toggle" href="{{route('user.cart')}}">
+                            <div  class="dropdown">
+                                <a class="dropdown-toggle " id="custom_shopping_cart" href="{{route('user.cart')}}">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span>Your Cart</span>
                                 </a>
@@ -108,7 +125,7 @@
                             <!-- /Cart -->
 
                             <!-- Menu Toogle -->
-                            <div class="menu-toggle">
+                            <div class="menu-toggle pull-right">
                                 <a href="#">
                                     <i class="fa fa-bars"></i>
                                     <span>Menu</span>
