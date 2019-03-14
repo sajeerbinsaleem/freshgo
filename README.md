@@ -14,7 +14,7 @@ Password: 12345
 <br />
 <br />
 ***
-Click [here](http://www.electrodemo.cf/admin) for Admin Panel <br />
+Click [here](https://electrodemo.000webhostapp.com/admin) for Admin Panel <br />
 ```
 Admin
 Username: admin
