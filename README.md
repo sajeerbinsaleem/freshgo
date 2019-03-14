@@ -3,7 +3,7 @@
 An E-commerce website created in Laravel framework.
 
 ## Demo ##
-Click [here](http://www.electrodemo.cf) for Demo Site <br />
+Click [here](https://electrodemo.000webhostapp.com/) for Demo Site <br />
 ```
 Demo Customer
 Email   : a@gmail.com
