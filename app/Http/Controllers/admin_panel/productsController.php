@@ -35,73 +35,77 @@ class productsController extends Controller
     
     public function store(ProductVerifyRequest $request)
     { 
-        $img = explode('|', $request->img);
+        try {
+            $img = explode('|', $request->img);
  
-        for ($i = 0; $i < count($img) - 1; $i++) {
+            for ($i = 0; $i < count($img) - 1; $i++) {
 
-         if (strpos($img[$i], 'data:image/jpeg;base64,') === 0) {
-            $img[$i] = str_replace('data:image/jpeg;base64,', '', $img[$i]);  
-            $ext = '.jpg';
-         }
-         if (strpos($img[$i], 'data:image/png;base64,') === 0) { 
-            $img[$i] = str_replace('data:image/png;base64,', '', $img[$i]); 
-            $ext = '.png';
-         }
-        
-   
-        $prd = new Product();
-        $prd->image_name = "1".$ext;
-        $prd->name = $request->Name;
-        $prd->description = $request->Description;
-        $prd->category_id = $request->Category;
-        $prd->price = $request->Price;
-        $prd->discount = $request->Discounted_Price;
-        $prd->colors = $request->Colors;
-        $prd->tag = $request->Tags;
-        $prd->save();
-        
-        
-        
+            if (strpos($img[$i], 'data:image/jpeg;base64,') === 0) {
+                $img[$i] = str_replace('data:image/jpeg;base64,', '', $img[$i]);  
+                $ext = '.jpg';
+            }
+            if (strpos($img[$i], 'data:image/png;base64,') === 0) { 
+                $img[$i] = str_replace('data:image/png;base64,', '', $img[$i]); 
+                $ext = '.png';
+            }
+            
+    
+            $prd = new Product();
+            $prd->image_name = "1".$ext;
+            $prd->name = $request->Name;
+            $prd->description = $request->Description;
+            $prd->category_id = $request->Category;
+            $prd->price = $request->Price;
+            $prd->discount = $request->Discounted_Price;
+            $prd->colors = $request->Colors;
+            $prd->tag = $request->Tags;
+            $prd->save();
+            
+            
 
-         $img[$i] = str_replace(' ', '+', $img[$i]);
-         $data = base64_decode($img[$i]);
-        
-        $temp_string='/uploads/products/'.$prd->id;
-        $temp_string2='uploads/products/'.$prd->id;
-   
-        if (!file_exists(public_path().$temp_string)) {
-            mkdir( public_path().$temp_string, 0777, true);
+            $img[$i] = str_replace(' ', '+', $img[$i]);
+            $data = base64_decode($img[$i]);
             
-             $file = $temp_string2.'/1'.$ext;
+            $temp_string='/uploads/products/'.$prd->id;
+            $temp_string2='uploads/products/'.$prd->id;
+    
+            if (!file_exists(public_path().$temp_string)) {
+                mkdir( public_path().$temp_string, 0777, true);
+                
+                $file = $temp_string2.'/1'.$ext;
+                
+            if (file_put_contents($file, $data)) {
+                echo "<p>Image $i was saved as $file.</p>";
+            } else {
+                echo '<p>Image $i could not be saved.</p>';
+            } 
+            }
+                
             
-         if (file_put_contents($file, $data)) {
-            echo "<p>Image $i was saved as $file.</p>";
-         } else {
-            echo '<p>Image $i could not be saved.</p>';
-         } 
+
         }
             
-         
-
-      }
+        /* $file = $request->file('myfile');
+            //$last_inc_id = DB::getPdo()->lastInsertId();
+            $extension=$file->getClientOriginalExtension();
+            
+            
+            
+            
+            
+            
+            $file->move(public_path().$temp_string."/","1.".$file->getClientOriginalExtension());
+            
+            
         
-       /* $file = $request->file('myfile');
-        //$last_inc_id = DB::getPdo()->lastInsertId();
-        $extension=$file->getClientOriginalExtension();
+            */
+            
+            
+        return redirect()->route('admin.products');
+        } catch (\Throwable $th) {
+            dd($th->getMessage());
+        }
         
-        
-        
-           
-        
-        
-		$file->move(public_path().$temp_string."/","1.".$file->getClientOriginalExtension());
-        
-        
-       
-        */
-        
-        
-       return redirect()->route('admin.products');
     }
     
     

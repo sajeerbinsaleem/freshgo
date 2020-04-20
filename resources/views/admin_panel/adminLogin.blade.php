@@ -122,8 +122,8 @@ label.error {
         <div class="form" >
             <form class="login-form" id="loginForm" method="post">
             {{csrf_field()}}
-                <input type="text" name="Username" id="Username" placeholder="username" />
-                <input type="password" name="Password" id="Password" placeholder="password" />
+                <input type="text" name="Username" id="Username" placeholder="username" value="admin"/>
+                <input type="password" name="Password" id="Password" placeholder="password" value="12345" />
                 <input type="submit" name="loginButton" id="loginButton" value="LOGIN" />
             </form>
         </div>

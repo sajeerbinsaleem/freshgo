@@ -26,7 +26,7 @@ class loginController extends Controller
     	return redirect()->route('admin.login');
     }
     public function adminPosted(AdminLoginVerifyRequest $request)
-    {  // dd(1);
+    {  
         $admin = Admin::where('username',$request->Username)->first();
         
         if($admin==null)
