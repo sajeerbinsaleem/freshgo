@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use URL;
+use Config;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (env('FORCE_HTTPS', false)) {
+        if (str_contains(Config::get('app.url'), 'https://')) {
             URL::forceScheme('https');
         }
     }
