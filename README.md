@@ -1,12 +1,12 @@
 # laravel-project-eshop #
 
-An E-commerce website created in Laravel framework.
+An E-commerce website made with Laravel framework. It was created for varsity course project.
 
 ## Demo ##
-Click [here](http://www.electrodemo.cf/) for Demo Site <br />
+Click [here](https://laravel-ecommerce-eshop.herokuapp.com/) for Demo Site <br />
 ```
 Demo Customer
-Email   : a@gmail.com
+Email   : john@examle.com
 Password: 12345
 ```
 ![Recordit GIF](https://raw.githubusercontent.com/arifszn/laravel-project-eshop/master/resources/assets/screenshots/1.gif)
@@ -14,7 +14,7 @@ Password: 12345
 <br />
 <br />
 ***
-Click [here](http://www.electrodemo.cf/admin) for Admin Panel <br />
+Click [here](https://laravel-ecommerce-eshop.herokuapp.com/admin) for Admin Panel <br />
 ```
 Admin
 Username: admin
