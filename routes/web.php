@@ -1,12 +1,17 @@
 <?php
 
-use Illuminate\Support\Facades\Redirect;
-
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+//Dashboard
 //login
-Route::get('admin/login', function() {
-    return Redirect(route('admin.login'));
-});
-
 Route::get('admin', 'loginController@adminIndex')->name('admin.login');
 Route::post('admin', 'loginController@adminPosted');
 
@@ -55,10 +60,6 @@ Route::post('/check_email', 'signupController@emailCheck')->name('user.signup.ch
 
 
 //user
-Route::get('home', function() {
-    return Redirect(route('user.home'));
-});
-
 Route::get('/', 'user\userController@index')->name('user.home');
 Route::get('/product/{id}', 'user\userController@view')->name('user.product');
 
