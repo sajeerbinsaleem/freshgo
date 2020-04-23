@@ -17,7 +17,6 @@ class loginController extends Controller
 {
     public function adminIndex()
     {
-        
     	return view('admin_panel.adminLogin');
     }
     public function adminLogout()

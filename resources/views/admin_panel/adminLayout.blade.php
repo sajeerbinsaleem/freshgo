@@ -27,10 +27,10 @@
         <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
                 <a class="navbar-brand brand-logo" href="{{route('admin.dashboard')}}">
-                    <img src="{{asset('images/logo.svg')}}" alt="logo" />
+                    <div style="color: #007bff;">Electro</div>
                 </a>
-                <a class="navbar-brand brand-logo-mini" href="index.html">
-                    <img src="{{asset('images/logo-mini.svg')}}" alt="logo" />
+                <a class="navbar-brand brand-logo-mini" href="{{route('admin.dashboard')}}">
+                    <div style="color: #007bff;">Electro</div>
                 </a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center">
