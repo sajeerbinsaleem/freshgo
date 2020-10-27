@@ -20,7 +20,7 @@ class AdminsTableSeeder extends Seeder
             0 => 
             array (
                 'username' => 'admin',
-                'name' => 'Electro',
+                'name' => 'sajeer',
                 'password' => '12345',
                 'created_at' => '2018-08-28',
                 'updated_at' => '2018-08-28',

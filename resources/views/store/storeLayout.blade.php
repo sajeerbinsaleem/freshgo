@@ -52,6 +52,11 @@
                 width: 100%;
             }
         }
+        a.logo {
+    font-size: 30px;
+    font-weight: bolder;
+    color: white;
+}
         </style>
 
 </head>
@@ -92,7 +97,8 @@
                     <div class="col-md-3">
                         <div class="header-logo">
                             <a href="{{route('user.home')}}" class="logo">
-                                <img src="{{asset('img/logo.png')}}" alt="">
+                                <!-- <img src="{{asset('img/logo.png')}}" alt=""> -->
+                                fersh go
                             </a>
                         </div>
                     </div>
