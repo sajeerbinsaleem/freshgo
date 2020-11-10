@@ -52,10 +52,13 @@
                 width: 100%;
             }
         }
-        a.logo {
+        /* a.logo {
     font-size: 30px;
     font-weight: bolder;
     color: white;
+} */
+img.logo-img {
+    width: 70px;
 }
         </style>
 
@@ -98,7 +101,9 @@
                         <div class="header-logo">
                             <a href="{{route('user.home')}}" class="logo">
                                 <!-- <img src="{{asset('img/logo.png')}}" alt=""> -->
-                                fersh go
+                                <img src="{{asset('images/logo.jpeg')}}" alt="" class="logo-img">
+
+                                <!-- fersh go -->
                             </a>
                         </div>
                     </div>

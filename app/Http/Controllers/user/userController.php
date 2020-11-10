@@ -15,6 +15,7 @@ class userController extends Controller
 {
     public function index()
     {
+        return redirect('/admin');
     	$res = Product::all();
         $cat = Category::all();
     	return view('store.index')

@@ -15,6 +15,7 @@ class admin
      */
     public function handle($request, Closure $next)
     {
+        dd($request->session()->all());
         if($request->session()->get('admin_user'))
         {
             return redirect()->route('admin.dashboard');

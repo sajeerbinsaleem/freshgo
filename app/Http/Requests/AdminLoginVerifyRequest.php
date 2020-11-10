@@ -25,8 +25,8 @@ class AdminLoginVerifyRequest extends FormRequest
     {
        // dd(1);
         return [
-            'Username' => 'required|max:20',
-            'Password' => 'required|max:20'
+            'username' => 'required|max:20',
+            'password' => 'required|max:20'
         ];
     }
 }

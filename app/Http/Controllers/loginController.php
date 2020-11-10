@@ -11,7 +11,7 @@ use App\Admin;
 use App\User;
 use App\Product;
 use App\Category;
-
+use Illuminate\Support\Facades\Session;
 
 class loginController extends Controller
 {
@@ -93,5 +93,26 @@ class loginController extends Controller
     {
         $r->session()->flush();
         return redirect()->route('user.home');
+    }
+    public function adminLogin(AdminLoginVerifyRequest $request)
+    {
+       $username = $request->username;
+       $password = $request->password;
+       if($admin = Admin::where('username',$username)->where('password',$password)->select('name','username')->first()){
+            // Session::put('admin_user', $admin);
+            // Session::put('admin', $admin);
+            // session('admin', $admin);
+            // $request->session()->put('user', $admin);
+            // $request->session()->put('admin', $admin);
+           return response([
+           'message' => 'success',
+           'user'    => $admin
+
+           ],200);
+       }
+       return response([
+           'message' => 'invalid username or password',
+       ],400);
+
     }
 }

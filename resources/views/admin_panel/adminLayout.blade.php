@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{asset('vendors/iconfonts/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.base.css')}}">
     <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.addons.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css"> -->
     <!-- endinject -->
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
@@ -81,6 +81,12 @@
                             <span class="menu-title">Dashboard</span>
                         </a>
                     </li>
+                    <li class="nav-item {{Route::is('admin.shops') ? 'active' : ''}}">
+                        <a class="nav-link" href="{{route('admin.shops')}}">
+                            <i class="menu-icon mdi mdi-cart-outline"></i>
+                            <span class="menu-title">Shops</span>
+                        </a>
+                    </li>
                     <li class="nav-item {{Route::is('admin.products') ? 'active' : ''}}">
                         <a class="nav-link" href="{{route('admin.products')}}">
                             <i class="menu-icon mdi mdi-cart-outline"></i>
@@ -124,19 +130,19 @@
     <!-- Plugin js for this page-->
     <!-- End plugin js for this page-->
     <!-- inject:js -->
-    <script src="{{asset('js/off-canvas.js')}}"></script>
-    <script src="{{asset('js/misc.js')}}"></script>
+    <!-- <script src="{{asset('js/off-canvas.js')}}"></script> -->
+    <!-- <script src="{{asset('js/misc.js')}}"></script> -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script> -->
     <!-- endinject -->
     <!-- Custom js for this page-->
 
-    <script src="{{asset('js/dashboard.js')}}"></script>
-    <script src="{{asset('js/chart.js')}}"></script>
+    <!-- <script src="{{asset('js/dashboard.js')}}"></script> -->
+    <!-- <script src="{{asset('js/chart.js')}}"></script> -->
     
     <!--    Jquery Validation-->
-    <script src="{{asset('js/lib/jquery.js')}}"></script>
-    <script src="{{asset('js/dist/jquery.validate.js')}}"></script>
+    <!-- <script src="{{asset('js/lib/jquery.js')}}"></script> -->
+    <!-- <script src="{{asset('js/dist/jquery.validate.js')}}"></script> -->
     <!-- End custom js for this page-->
 </body>
 

@@ -15,7 +15,7 @@
 Route::get('admin', 'loginController@adminIndex')->name('admin.login');
 Route::post('admin', 'loginController@adminPosted');
 
-Route::group(['middleware' => 'admin'], function(){
+Route::group([], function(){
 
  
     Route::get("/admin_panel", 'admin_panel\dashboardController@index')->name('admin.dashboard');
@@ -34,6 +34,7 @@ Route::group(['middleware' => 'admin'], function(){
 
     //products
     Route::get('/admin_panel/products', 'admin_panel\productsController@index')->name('admin.products');
+    Route::get('/admin_panel/shops', 'admin_panel\ShopController@index')->name('admin.shops');
 
     Route::get('/admin_panel/products/create', 'admin_panel\productsController@create')->name('admin.products.create');
     Route::post('/admin_panel/products/create', 'admin_panel\productsController@store');
