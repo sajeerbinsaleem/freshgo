@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class admin
+class HasToken
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,7 @@ class admin
      */
     public function handle($request, Closure $next)
     {
-        if($request->session()->get('admin_user'))
+        if(!$request->has('token'))
         {
             return redirect()->route('admin.dashboard');
         }

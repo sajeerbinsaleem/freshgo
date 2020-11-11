@@ -15,7 +15,7 @@
 Route::get('admin', 'loginController@adminIndex')->name('admin.login');
 Route::post('admin', 'loginController@adminPosted');
 
-Route::group([], function(){
+Route::group(['hasToken'], function(){
 
  
     Route::get("/admin_panel", 'admin_panel\dashboardController@index')->name('admin.dashboard');

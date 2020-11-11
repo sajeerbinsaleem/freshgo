@@ -119,10 +119,12 @@ label.error {
     <div class="login-page" id="loginApp">
         <div class="form" >
             <h3>Freshgo Admin</h3>
+            <form method="post" action="{{url('/api/admin/login')}}">
             
                 <input type="text" name="Username" id="Username" placeholder="username" v-model="username"/>
                 <input type="password" name="Password" id="Password" placeholder="password" v-model="password" />
                 <input type="submit" name="loginButton" id="loginButton" value="LOGIN" @click="login()" />
+            </form>
         </div>
     </div>
 </body>
@@ -150,7 +152,7 @@ label.error {
                 })
                 .then(response => {
                     if (response.data.message == "success") {
-                        location.href = "http://localhost:8000/admin_panel";
+                        location.href = "http://localhost:8000/admin_panel?token="+response.data.token;
                     }
                 })
                 .catch(error => {});

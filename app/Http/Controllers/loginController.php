@@ -99,14 +99,14 @@ class loginController extends Controller
        $username = $request->username;
        $password = $request->password;
        if($admin = Admin::where('username',$username)->where('password',$password)->select('name','username')->first()){
-            // Session::put('admin_user', $admin);
-            // Session::put('admin', $admin);
-            // session('admin', $admin);
-            // $request->session()->put('user', $admin);
-            // $request->session()->put('admin', $admin);
-           return response([
+                $user = Admin::where('username',$username)->where('password',$password)->first();
+                $token = str_random(32);
+                $user->token = $token;
+                $user->save();
+            return response([
            'message' => 'success',
-           'user'    => $admin
+           'user'    => $admin,
+           'token'    => $token
 
            ],200);
        }

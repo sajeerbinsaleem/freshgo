@@ -10,10 +10,11 @@ use Illuminate\Support\Facades\Session;
 
 class dashboardController extends Controller
 {
-    public function index(){
-        return session()->all();
+    public function index(Request $request){
+        $token = $request->token;
+        $user = Admin::where('token',$token)->select('name','username')->first();
         $sales =  sale::all();
         return view('admin_panel.dashboard.index')
-        ->with('sales',$sales);
+        ->with(['sales' => $sales, 'user' => $user]);
     }
 }
