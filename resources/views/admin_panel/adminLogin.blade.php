@@ -154,7 +154,7 @@ label.error {
                 })
                 .then(response => {
                     if (response.data.message == "success") {
-                        location.href = "http://localhost:8000/admin_panel?token="+response.data.token;
+                        location.href = "http://freshgoadmin.com/admin_panel?token="+response.data.token;
                     } else{
                       this.login_error = 'Username or password is incorrect';
                     }
