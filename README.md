@@ -1,4 +1,3 @@
-# laravel-project-eshop #
 
 An E-commerce website made with Laravel framework. It was created for varsity course project.
 
