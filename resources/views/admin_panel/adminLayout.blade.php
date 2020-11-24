@@ -144,6 +144,8 @@
     <!-- <script src="{{asset('js/lib/jquery.js')}}"></script> -->
     <!-- <script src="{{asset('js/dist/jquery.validate.js')}}"></script> -->
     <!-- End custom js for this page-->
+    @yield('script')
+
 </body>
 
 </html>

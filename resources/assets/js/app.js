@@ -14,6 +14,9 @@ window.Vue = require('vue');
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+import vue2Dropzone from 'vue2-dropzone'
+import 'vue2-dropzone/dist/vue2Dropzone.min.css'
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('vue-dropzone', vue2Dropzone);
 

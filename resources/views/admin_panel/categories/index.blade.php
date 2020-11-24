@@ -15,34 +15,7 @@
         <div class="col-12 stretch-card">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Add Categories</h4>
-                    <form class="forms-sample" method="post" id="cat_form">
-                        {{csrf_field()}}
-                        <div class="form-group row">
-                            <label for="exampleInputEmail2" class="col-sm-3 col-form-label">Name</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="Name" id="Name" placeholder="Enter Category Name">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="exampleInputPassword2" class="col-sm-3 col-form-label">Category Type</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="Type" id="Type" placeholder="Enter Category Type">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-success mr-2">Submit</button>
-                    </form>
-                    @if($errors->any())
-                    <ul>
-                        @foreach($errors->all() as $err)
-                        <tr>
-                            <td>
-                                <li>{{$err}}</li>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </ul>
-                    @endif
+                    <a href="{{url('/admin_panel/shopCategory')}}" class="btn btn-success mr-2">Add Categories</a>
                 </div>
             </div>
         </div>

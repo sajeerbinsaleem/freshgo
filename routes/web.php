@@ -35,8 +35,10 @@ Route::group(['hasToken'], function(){
     //products
     Route::get('/admin_panel/products', 'admin_panel\productsController@index')->name('admin.products');
     Route::get('/admin_panel/shops', 'admin_panel\ShopController@index')->name('admin.shops');
+    Route::post('/shop/create', 'admin_panel\ShopController@store')->name('admin.shops.store');
 
-    Route::get('/admin_panel/products/create', 'admin_panel\productsController@create')->name('admin.products.create');
+    // Route::get('/admin_panel/products/create', 'admin_panel\productsController@create')->name('admin.products.create');
+    Route::get('/admin_panel/products/create', 'admin_panel\productsController@add')->name('admin.products.create');
     Route::post('/admin_panel/products/create', 'admin_panel\productsController@store');
 
     Route::get('/admin_panel/products/edit/{id}', 'admin_panel\productsController@edit')->name('admin.products.edit');
@@ -48,11 +50,14 @@ Route::group(['hasToken'], function(){
     //order management 
     Route::get('/admin_panel/management', 'admin_panel\managementController@manage')->name('admin.orderManagement');
     Route::post('/admin_panel/management', 'admin_panel\managementController@update')->name('admin.orderUpdate');
+    Route::get('/admin_panel/shopCategory', 'admin_panel\ShopController@createShopCategory')->name('admin.shopCategory.create');
+    Route::post('/admin_panel/shop/category', 'admin_panel\ShopController@postShopCategory')->name('admin.shopCategory.post');
 
 });
 
 Route::get('/login', 'loginController@userIndex')->name('user.login');
 Route::post('/login', 'loginController@userPosted');
+Route::post('/admin/login', 'loginController@adminPostLogin');
 
 //signup
 Route::get('/signup', 'signupController@userIndex')->name('user.signup');

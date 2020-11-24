@@ -25,13 +25,19 @@ class productsController extends Controller
     
      public function create()
     {
-        $result = Category::all();
+        $result = Category::where('category_type','product')->get();
         return view('admin_panel.products.create')
             ->with('catlist', $result);
         
     }
     
-    
+    public function add()
+    {
+        $result = Category::where('category_type','shop')->get();
+        return view('admin_panel.products.add')
+            ->with('catlist', $result);
+        
+    }
     
     public function store(ProductVerifyRequest $request)
     { 

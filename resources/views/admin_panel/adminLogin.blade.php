@@ -114,17 +114,18 @@ label.error {
   background-color: #f2dede;
   
 }
+.text-danger {
+    color: #ff0000;
+}
 </style>
 <body>
     <div class="login-page" id="loginApp">
         <div class="form" >
             <h3>Freshgo Admin</h3>
-            <form method="post" action="{{url('/api/admin/login')}}">
-            
+            <h5 class="text-danger" v-if="login_error != '' "> @{{login_error}}</h5>
                 <input type="text" name="Username" id="Username" placeholder="username" v-model="username"/>
                 <input type="password" name="Password" id="Password" placeholder="password" v-model="password" />
-                <input type="submit" name="loginButton" id="loginButton" value="LOGIN" @click="login()" />
-            </form>
+                <input type="submit" name="loginButton" id="loginButton" value="LOGIN" @click="login()"/>
         </div>
     </div>
 </body>
@@ -139,6 +140,7 @@ label.error {
         return{
           username : '',
           password : '',
+          login_error : '',
         }
       },
       mounted(){
@@ -146,16 +148,20 @@ label.error {
       },
       methods : {
         login(){
-          axios.post("/api/admin/login", {
+          axios.post("/admin/login", {
                     username: this.username,
                     password: this.password,
                 })
                 .then(response => {
                     if (response.data.message == "success") {
                         location.href = "http://localhost:8000/admin_panel?token="+response.data.token;
+                    } else{
+                      this.login_error = 'Username or password is incorrect';
                     }
                 })
-                .catch(error => {});
+                .catch(error => {
+                  this.login_error = 'Username or password is incorrect';
+                });
         }
       }
   });

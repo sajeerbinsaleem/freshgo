@@ -17,7 +17,7 @@ class HasToken
     {
         if(!$request->has('token'))
         {
-            return redirect()->route('admin.dashboard');
+            return redirect('/login');
         }
         return $next($request);
     }

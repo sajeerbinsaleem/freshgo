@@ -210,7 +210,9 @@ function addColor(){
 <script>
 	
 	$(document).ready(function() {
-		
+		$('#Category').select2({
+        placeholder: 'Select an option'
+        });
         
         
 		$("#product_form").validate({

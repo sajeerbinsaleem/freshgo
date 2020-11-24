@@ -98,6 +98,28 @@ class loginController extends Controller
     {
        $username = $request->username;
        $password = $request->password;
+       return $request->all();
+       if($admin = Admin::where('username',$username)->where('password',$password)->select('name','username')->first()){
+                $user = Admin::where('username',$username)->where('password',$password)->first();
+                $token = str_random(32);
+                $user->token = $token;
+                $user->save();
+            return response([
+           'message' => 'success',
+           'user'    => $admin,
+           'token'    => $token
+
+           ],200);
+       }
+       return response([
+           'message' => 'invalid username or password',
+       ],400);
+
+    }
+    public function adminPostLogin(Request $request)
+    {
+       $username = $request->username;
+       $password = $request->password;
        if($admin = Admin::where('username',$username)->where('password',$password)->select('name','username')->first()){
                 $user = Admin::where('username',$username)->where('password',$password)->first();
                 $token = str_random(32);
