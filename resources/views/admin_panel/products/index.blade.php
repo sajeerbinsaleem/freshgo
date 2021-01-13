@@ -39,7 +39,7 @@
                             @foreach($prdlist as $prd)
                                 <tr>
                                     <td>
-                                        <img src="../uploads/products/{{$prd->id}}/{{$prd->image_name}}" style="width:100px;height:100px;border-radius:10%;" alt="">
+                                        <img src="{{isset($prd->images[0]->image_url) ? $prd->images[0]->image_url: ''}}" style="width:100px;height:100px;border-radius:10%;" alt="">
                                     </td>
                                     <td>
                                        <a href="{{route('admin.products.edit', ['id' => $prd->id])}}" class="btn btn-warning">{{$prd->name}}</a>
@@ -52,7 +52,9 @@
                                         {{$prd->description}}
                                     </td>
                                     <td>
-                                        {{$prd->category->name}}
+                                        @foreach($prd->categories as $cat)
+                                            {{ $cat->name }},
+                                        @endforeach
                                     </td>
                                     
                                     <td><a href="{{route('admin.products.edit', ['id' => $prd->id])}}" class="btn btn-warning">Edit</a> </td>

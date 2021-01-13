@@ -27,52 +27,75 @@
                                     <br>
                                     <h4 >Create product</h4>
                                     <br>
-                                    <vue-dropzone ref="myVueDropzone" :options="dropzoneOptions" :id="'productUploads'">
-                                    </vue-dropzone>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <vue-dropzone ref="myVueDropzone" :options="dropzoneOptions" :id="'productUploads'">
+                                            </vue-dropzone>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label  >Product Name*</label>
+                                                <input type="text" class="form-control" id="Name" v-model="product.name">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label  for="Category">Shop*</label>
+                                                <select class="form-control form-control-md" id="Category" name="Category" v-model="shops" name="shops[]" multiple="multiple">
+                                                    @php foreach($shops as $shop) {
+                                                    echo "<option value=".$shop->id." >".$shop->name." </option>"; $select_attribute=''; } @endphp
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label  for="Description">Product Description*</label>
+                                                <textarea type="textarea" class="form-control" v-model="product.description"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label  for="Category">Category*</label>
+                                                <select class="form-control form-control-md" id="Category" name="Category" v-model="cat_array" name="Categories[]" multiple="multiple">
+                                                    @php foreach($catlist as $cat) {
+                                                    echo "<option value=".$cat->id." >".$cat->name." </option>"; $select_attribute=''; } @endphp
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                <label  >Product Price*</label>
+                                                <input type="text" class="form-control" v-model="product.price">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="row" v-for="(attribute,index) in attributes">
+                                                <div class="col-5">
+                                                    <input type="text" class="form-control" v-model="attribute.key">
+                                                </div>
+                                                <div class="col-5">
+                                                    <input type="text" class="form-control" v-model="attribute.value">
+                                                </div>
+                                                
+                                                <div class="col-1">
+                                                    <a href="#" class="btn btn-sm btn-danger" @click="deleteRow(index)"><i class="mdi mdi-delete"></i></a>
+                                                </div>
+                                                <div class="col-1" v-if="index+1 ==  attributes.length">
+                                                    <a href="#" class="btn btn-sm btn-primary" @click="addRow()"><i class="mdi mdi-plus"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    
                                     <br>
-                                        <div id="for_extension_error"></div>
-                                        <div class="form-group">
-                                            <label  >Product Name*</label>
-                                            <input type="text" class="form-control" id="Name" name="Name"  value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label  for="Description">Product Description*</label>
-                                            <textarea type="textarea" class="form-control" id="Description" name="Description"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label  for="Category">Category*</label>
-                                            <select class="form-control form-control-md" id="Category" name="Category" v-model="cat_array" name="Categories[]" multiple="multiple">
-                                                @php foreach($catlist as $cat) {
-                                                echo "<option value=".$cat->id." >".$cat->name." </option>"; $select_attribute=''; } @endphp
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label  >Product Price*</label>
-                                            <input type="text" class="form-control" name="Price" id="Price" value="">
-                                        </div>
-                                        <div class="form-group">
-                                            <label  >Product Discounted Price*</label>
-                                            <input type="text" class="form-control" id="Discounted_Price"  name="Discounted_Price" value="">
-                                        </div>
-                                        
-                                        <div class="form-group ">
-                                            <label  >Product Colors*</label>
-                                            
-                                            <input type="color" id="picker" class="form-control col-md-2">
-                                            <br>
-                                            <a onclick="addColor()" class="btn btn-sm btn-primary" >add</a>
-                                            <br>
-                                            <br>
-                                            <div id="colors" style="border:1px solid #eee"> 
-                                            </div>  
-                                            <br>            
-                                            <input type="text" class="form-control" id="color_list" name="Colors" value="" hidden>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <label >Product Tags*</label>
-                                            <input type="text" class="form-control" id="Tags" name="Tags" value="">
-                                        </div>
+                                       
                                         <input type="submit" name="saveButton" class="btn btn-success mr-2" id="saveButton" value="Create" @click="saveProduct" />
                                     @if($errors->any())
 
@@ -110,8 +133,6 @@
       el: '#loginApp',
       data(){
         return{
-          username : '',
-          password : '',
           login_error : '',
           dropzoneOptions: {
                 url: 'https://httpbin.org/post',
@@ -121,25 +142,70 @@
             },
           product : {},
           cat_array : [],
+          shops :[],
+          attributes : [
+              {key:'size', value:''}
+          ]
         }
       },
       mounted(){
         
       },
       methods : {
-          saveProduct(){
-            var files = this.$refs.myVueDropzone.getAcceptedFiles();
-            console.log(this.cat_array);
-          },
+        addRow(){
+            this.attributes.push({key:'key name', value:''});
+        },
+        deleteRow(index){
+            this.attributes.splice(index, 1);
+        },
 
-        login(){
-          axios.post("/admin/login", {
-                    username: this.username,
-                    password: this.password,
-                })
+        saveProduct(){
+            if(!this.product.name){
+                alert('please provide a name');
+                return;
+
+            }
+            if(!this.product.price){
+                alert('please provide a name');
+                return;
+
+            }
+            if(this.cat_array.length <= 0){
+                alert('please select category');
+                return;
+
+            }
+            if(this.attributes.length <= 0){
+                alert('please select attributes');
+                return;
+
+            }
+            if(this.attributes.shops <= 0){
+                alert('please select shops');
+                return;
+
+            }
+            
+            var files = this.$refs.myVueDropzone.getAcceptedFiles();
+            console.log(files);
+            this.product.category = this.cat_array;
+            this.product.attributes = this.attributes;
+            this.product.shops = this.shops;
+            var formdata = new FormData();
+            
+            formdata.append('product',JSON.stringify(this.product));
+            formdata.append('files_count',files.length);
+            for( var i = 0; i < files.length; i++ ){
+                let file = files[i];
+                formdata.append('files[' + i + ']', file);
+            }
+                axios.post("/admin_panel/products/create", formdata,{
+                headers : {
+                    'Content-Type': 'multipart/form-data'
+                }})
                 .then(response => {
                     if (response.data.message == "success") {
-                        location.href = "http://localhost:8000/admin_panel?token="+response.data.token;
+                        alert('shop saved successfully')
                     } else{
                       this.login_error = 'Username or password is incorrect';
                     }
@@ -147,7 +213,7 @@
                 .catch(error => {
                   this.login_error = 'Username or password is incorrect';
                 });
-        }
+          },
       }
   });
 

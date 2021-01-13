@@ -16,7 +16,7 @@ window.Vue = require('vue');
  */
 import vue2Dropzone from 'vue2-dropzone'
 import 'vue2-dropzone/dist/vue2Dropzone.min.css'
-
+import Select2 from 'v-select2-component';
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
 Vue.component('vue-dropzone', vue2Dropzone);
-
+Vue.component('Select2', Select2);

@@ -87,6 +87,12 @@
                             <span class="menu-title">Shops</span>
                         </a>
                     </li>
+                    <li class="nav-item {{Route::is('admin.banners') ? 'active' : ''}}">
+                        <a class="nav-link" href="{{route('admin.banners')}}">
+                            <i class="menu-icon mdi mdi-cart-outline"></i>
+                            <span class="menu-title">Banners</span>
+                        </a>
+                    </li>
                     <li class="nav-item {{Route::is('admin.products') ? 'active' : ''}}">
                         <a class="nav-link" href="{{route('admin.products')}}">
                             <i class="menu-icon mdi mdi-cart-outline"></i>
@@ -124,8 +130,6 @@
     <!-- container-scroller -->
 
     <!-- plugins:js -->
-    <script src="{{asset('vendors/js/vendor.bundle.base.js')}}"></script>
-    <script src="{{asset('vendors/js/vendor.bundle.addons.js')}}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page-->
     <!-- End plugin js for this page-->

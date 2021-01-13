@@ -37,6 +37,9 @@ Route::group(['hasToken'], function(){
     Route::get('/admin_panel/shops', 'admin_panel\ShopController@index')->name('admin.shops');
     Route::post('/shop/create', 'admin_panel\ShopController@store')->name('admin.shops.store');
 
+    //banners
+    Route::get('/admin_panel/banners', 'admin_panel\BannerController@index')->name('admin.banners');
+
     // Route::get('/admin_panel/products/create', 'admin_panel\productsController@create')->name('admin.products.create');
     Route::get('/admin_panel/products/create', 'admin_panel\productsController@add')->name('admin.products.create');
     Route::post('/admin_panel/products/create', 'admin_panel\productsController@store');

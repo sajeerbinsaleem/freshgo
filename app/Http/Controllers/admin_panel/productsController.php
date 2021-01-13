@@ -6,17 +6,24 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductVerifyRequest;
 use App\Http\Requests\ProductEditVerifyRequest;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\Product;
 use App\Category;
-
+use App\ProductAttribute;
+use App\ProductCategory;
+use App\ProductImage;
+use App\ProductShop;
+use App\Shop;
 
 class productsController extends Controller
 {
    public function index()
     {
-        $result = Product::all();
+        $result = Product::with('categories:categories.id,categories.name')
+        ->with('images')
+        ->with('attributes')
+        ->with('shops:shops.id,shops.name')->get();
 
     	return view('admin_panel.products.index')
     		->with('prdlist', $result);
@@ -33,14 +40,65 @@ class productsController extends Controller
     
     public function add()
     {
-        $result = Category::where('category_type','shop')->get();
+        $shops = Shop::all();
+        $result = Category::where('category_type','product')->get();
         return view('admin_panel.products.add')
-            ->with('catlist', $result);
+            ->with(['catlist' => $result, 'shops' => $shops]);
         
     }
     
-    public function store(ProductVerifyRequest $request)
+    public function store(Request $request)
     { 
+
+        $product = $request->product;
+        $files =$request->file('files');
+        $product = json_decode($product);
+            $image = '';
+            $urls = [];
+            foreach($files as $file){
+                // $file = $request->file('file');
+                $file_name ='freshgo'.'/'.time().'product.'.$file->getClientOriginalExtension();
+                Storage::disk('s3')->put($file_name, file_get_contents($file), 'public');
+                $image = Storage::disk('s3')->url($file_name);
+                array_push($urls, $image);
+            }
+        $prdObj = new product;
+        $prdObj->name = $product->name;
+        $prdObj->price = isset($product->price)?$product->price :0;
+        $prdObj->description = isset($product->description)?$product->description :'';
+        $prdObj->save();
+
+        foreach($urls as $img){
+            $sp = new ProductImage();
+            $sp->product_id = $prdObj->id;
+            $sp->image_url = $img;
+            $sp->save();
+        }
+        foreach($product->category as $category){
+            $cat = new ProductCategory();
+            $cat->product_id = $prdObj->id;
+            $cat->category_id = $category;
+            $cat->save();
+        }
+        foreach($product->shops as $shop){
+            $sp = new ProductShop();
+            $sp->product_id = $prdObj->id;
+            $sp->shop_id = $shop;
+            $sp->save();
+        }
+        foreach($product->attributes as $attribute){
+            $sp = new ProductAttribute();
+            $sp->product_id = $prdObj->id;
+            $sp->key = $attribute->key;
+            $sp->value = $attribute->value;
+            $sp->save();
+        }
+        
+        return response([
+            'message' => 'success',
+            'shop'    => $prdObj,
+ 
+        ],200);
         try {
             $img = explode('|', $request->img);
  
